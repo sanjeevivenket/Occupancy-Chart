@@ -1,0 +1,215 @@
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+}
+
+a {
+  color: #149ddd;
+}
+
+a:hover {
+  color: #37b3ed;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  padding: 0 15px;
+  background: #040b14;
+  overflow-y: auto;
+}
+
+#header .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#header .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#header .profile h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+#header .profile h1 a:hover{
+  color:red;
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  padding-top: 30px;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+.nav-menu a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu a:hover i {
+  color: #149ddd;
+}
+.r1{
+  color: white;
+}
+.nav-menu li{
+  display: block;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color:white;
+  opacity: 0.7;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+color:black;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+.we{
+  text-align:center;
+  color:white;
+}
+.we:hover{
+  color:#37b3ed;
+}
+#main {
+  margin-top:50px;
+  margin-left: 350px;
+  margin-right: 350px;
+}
+
+.we2{
+  margin-bottom: 50px;
+}
+
+.we4{
+  width:10%;
+
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+
+#Add_Dept1{
+  display: visible;
+}
+.button_color{
+  margin-left: 120px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: large;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.preference{
+  margin-left: 255px;
+}
+.hovertot{
+  color:white;
+}
+.hovertot:hover{
+  color: #010507;
+}
+.dwn-lg{
+  margin-top: 50%;
+}
+.dwn-lg-1{
+  margin-top: 150%;
+}
+.qw{
+  width: 500px;
+}
+.lve table,td{
+border: 3px solid rgb(70, 62, 62);
+}
+.lve tr:nth-child(even){
+  background-color: rgb(0, 0, 0);
+  color: white !important;
+}
+.aa{
+  background-color: rgb(134, 133, 134);
+}
