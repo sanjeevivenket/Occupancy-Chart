@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Occupancy chart </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gpHqUkQZv_2OFGbDoPOIWT6KwYKgNnJR5RHLsMokzwLAKFvtzQJSbJ2eOo-6t3swrrBy33V5A5gl8O-GvxbBgdkhcALB5J4uxUwwVbsOf-ONaQ1STrBYTwKIwD8avZPpQTmIsplQ3PAyqkVix4P2cw" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- Extra CSS Files -->
+  <link href="/assetslog/bootstrap.min.css" rel="stylesheet">
+  <link href="/assetslog/icofont.min.css" rel="stylesheet">
+  <link href="/assetslog/boxicons.min.css" rel="stylesheet">
+  
+  <link href="/assetslog/style1.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assetslog/style.css" rel="stylesheet">
+  <link href="/assetslog/2.css" rel="stylesheet">
+
+  <script type="text/javascript">
+    async function login() {
+        let username=document.getElementById('username').value
+        let password=document.getElementById('password').value
+        let option=document.getElementById('option').value
+        console.log(username);
+        try {
+
+            let res = await axios.post('/login',{username,password,option})
+            // jwt in localstorage
+            if(option==="student")
+            {
+                location.replace(window.location.origin+'/student/'+username)
+                console.log(username)
+            }
+            else if(option==="faculty")
+            {
+                location.replace(window.location.origin+'/faculty/'+username)
+            }
+            else
+            {
+                location.replace(window.location.origin+'/admin')
+            }
+        } catch (err) {
+            document.getElementById('username').value=null
+            document.getElementById('password').value=null
+            swal({
+                title: "Incorrect credentials",
+                icon: "error",
+                button: "Ok",
+            });
+            console.log(err);
+        }
+    }
+</script>
+
+<script>
+    history.pushState(null, null, null);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, null);
+    });
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign In</h3>
+                    
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><em class='bx bxs-user'></em></span>
+                            </div>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="username">
+                            
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><em class='bx bxs-key'></em></span>
+                            </div>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="password">
+                        </div>
+                        <div class="row align-items-center remember preference">
+                            <select id="option" name='option' class="opt">
+                                <option value="student">Student</option>
+                                <option value="faculty">Faculty</option>
+                                <option selected value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group sub" >
+                            <button onclick="login()" class="login_btn">Log in</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+</html>

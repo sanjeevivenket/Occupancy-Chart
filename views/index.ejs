@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Admin Dashboard</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+	<!-- Feathericon CSS -->
+	<link rel="stylesheet" href="/assets/css/feathericon.min.css">
+
+	<link rel="stylesheet" href="/assets/plugins/morris/morris.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<link rel="stylesheet" href="/assets/css/table.css">
+
+
+</head>
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<div class="header">
+
+			<!-- Logo -->
+			<div class="header-left">
+				<a href="/dashboard" class="logo">
+					<img src="/assets/img/logo.png" alt="Logo">
+				</a>
+				<a href="/dashboard" class="logo logo-small">
+					<img src="/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+			<!-- /Logo -->
+
+			<a href="javascript:void(0);" id="toggle_btn">
+				<i class="fe fe-text-align-left"></i>
+			</a>
+
+			<!-- Mobile Menu Toggle -->
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fa fa-bars"></i>
+			</a>
+			<!-- /Mobile Menu Toggle -->
+
+			<!-- Header Right Menu -->
+			<ul class="nav user-menu">
+
+				<!-- User Menu -->
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<span class="user-img"><img class="rounded-circle"
+								src="/assets/img/profiles/avatar-01.jpg" width="31"
+								alt="Ryan Taylor"></span>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm">
+								<img src="/assets/img/profiles/avatar-01.jpg"
+									alt="User Image" class="avatar-img rounded-circle">
+							</div>
+							<div class="user-text">
+								<h6>Admin</h6>
+								<p class="text-muted mb-0">Administrator</p>
+							</div>
+						</div>
+						<!-- <a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="settings.html">Settings</a> -->
+						<a class="dropdown-item" href="logout">Logout</a>
+					</div>
+				</li>
+				<!-- /User Menu -->
+
+			</ul>
+			<!-- /Header Right Menu -->
+
+		</div>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main</span>
+						</li>
+						<li class="active">
+							<a href="dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						</li>
+						<li>
+							<a href="alist"><i class="fe fe-layout"></i> <span>Requests</span></a>
+						</li>
+						<li>
+							<a href="flist"><i class="fe fe-user"></i> <span>Teachers</span></a>
+						</li>
+						<li>
+							<a href="slist"><i class="fe fe-user"></i> <span>Students</span></a>
+						</li>
+						<li>
+							<a href="rlist"><i class="fe fe-user"></i> <span>Rooms</span></a>
+						</li>
+						<li>
+							<a href="addt"><i class="fe fe-user-plus"></i> <span>Add Teacher</span></a>
+						</li>
+						<li>
+							<a href="adds"><i class="fe fe-user-plus"></i> <span>Add Student</span></a>
+						</li>
+						<li>
+							<a href="addc"><i class="fe fe-user-plus"></i> <span>Add Course</span></a>
+						</li>
+						<li>
+							<a href="addr"><i class="fe fe-user-plus"></i> <span>Add Room</span></a>
+						</li>
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper">
+
+			<div class="content container-fluid">
+
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3 class="page-title">Welcome Admin!</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item active">Dashboard</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /Page Header -->
+
+				<div class="row">
+					<div class="col-xl-3 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="dash-widget-header">
+									<span class="dash-widget-icon text-primary border-primary">
+										<i class="fe fe-users"></i>
+									</span>
+									<div class="dash-count">
+										<h3>
+											<%= tcount %>
+										</h3>
+									</div>
+								</div>
+								<div class="dash-widget-info">
+									<h6 class="text-muted">Teachers</h6>
+									<div class="progress progress-sm">
+										<div class="progress-bar bg-primary w-50"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="dash-widget-header">
+									<span class="dash-widget-icon text-success">
+										<i class="fe fe-credit-card"></i>
+									</span>
+									<div class="dash-count">
+										<h3>
+											<%= scount %>
+										</h3>
+									</div>
+								</div>
+								<div class="dash-widget-info">
+
+									<h6 class="text-muted">Students</h6>
+									<div class="progress progress-sm">
+										<div class="progress-bar bg-success w-50"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="dash-widget-header">
+									<span class="dash-widget-icon text-danger border-danger">
+										<i class="fe fe-money"></i>
+									</span>
+									<div class="dash-count">
+										<h3>
+											<%= rcount %>
+										</h3>
+									</div>
+								</div>
+								<div class="dash-widget-info">
+
+									<h6 class="text-muted">Requests</h6>
+									<div class="progress progress-sm">
+										<div class="progress-bar bg-danger w-50"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 d-flex">
+
+					</div>
+					<div class="col-md-6 d-flex">
+
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="content container-fluid">
+
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3 class="page-title">Enter Timetable</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- /Page Header -->
+
+
+				<form action="/ttable" method="POST">
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Class ID :</label>
+						<div class="col-md-10">
+							<input name="Classid" id="Classid" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="timetable">
+						<div class="week-names">
+							<div>Monday</div>
+							<div>Tuesday</div>
+							<div>Wednesday</div>
+							<div>Thursday</div>
+							<div>Friday</div>
+							<div class="weekend">Saturday</div>
+							<div class="weekend">Sunday</div>
+						</div>
+						<div class="time-interval">
+							<div>9:00 AM</div>
+							<div>10:00 AM</div>
+							<div>11:00 AM</div>
+							<div>12:00 PM</div>
+							<div>1:00 PM</div>
+							<div>2:00 PM</div>
+							<div>3:00 PM</div>
+							<div>4:00 PM</div>
+							<div>5:00 PM</div>
+						</div>
+						<div class="content">
+							<div>
+								<input name="m9" id="m9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om9" id="om9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t9" id="t9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot9" id="ot9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w9" id="w9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow9" id="ow9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h9" id="h9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh9" id="oh9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f9" id="f9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of9" id="of9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s9" id="s9" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os9" id="os9" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m10" id="m10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om10" id="om10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t10" id="t10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot10" id="ot10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w10" id="w10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow10" id="ow10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h10" id="h10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh10" id="oh10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f10" id="f10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of10" id="of10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s10" id="s10" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os10" id="os10" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m11" id="m11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om11" id="om11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t11" id="t11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot11" id="ot11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w11" id="w11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow11" id="ow11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h11" id="h11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh11" id="oh11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f11" id="f11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of11" id="of11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s11" id="s11" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os11" id="os11" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m12" id="m12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om12" id="om12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t12" id="t12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot12" id="ot12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w12" id="w12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow12" id="ow12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h12" id="h12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh12" id="oh12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f12" id="f12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of12" id="of12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s12" id="s12" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os12" id="os12" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m1" id="m1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om1" id="om1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t1" id="t1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot1" id="ot1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w1" id="w1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow1" id="ow1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h1" id="h1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh1" id="oh1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f1" id="f1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of1" id="of1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s1" id="s1" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os1" id="os1" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m2" id="m2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om2" id="om2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t2" id="t2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot2" id="ot2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w2" id="w2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow2" id="ow2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h2" id="h2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh2" id="oh2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f2" id="f2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of2" id="of2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s2" id="s2" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os2" id="os2" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m3" id="m3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om3" id="om3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t3" id="t3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot3" id="ot3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w3" id="w3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow3" id="ow3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h3" id="h3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh3" id="oh3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f3" id="f3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of3" id="of3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s3" id="s3" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os3" id="os3" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m4" id="m4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om4" id="om4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t4" id="t4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot4" id="ot4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w4" id="w4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow4" id="ow4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h4" id="h4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh4" id="oh4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f4" id="f4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of4" id="of4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s4" id="s4" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os4" id="os4" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+							<div>
+								<input name="m5" id="m5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="om5" id="om5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="t5" id="t5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ot5" id="ot5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="w5" id="w5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="ow5" id="ow5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="h5" id="h5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="oh5" id="oh5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div>
+								<input name="f5" id="f5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="of5" id="of5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend">
+								<input name="s5" id="s5" type="text" class="form-ctrl" placeholder="Course ID">
+								<input name="os5" id="os5" type="text" class="form-ctrl" placeholder="Faculty">
+							</div>
+							<div class="weekend"></div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+					<br>
+				</form>
+
+			</div>
+		</div>
+		<!-- /Page Wrapper -->
+
+	</div>
+	<!-- /Main Wrapper -->
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="/assets/plugins/raphael/raphael.min.js"></script>
+	<script src="/assets/plugins/morris/morris.min.js"></script>
+	<script src="/assets/js/chart.morris.js"></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
+
+</html>

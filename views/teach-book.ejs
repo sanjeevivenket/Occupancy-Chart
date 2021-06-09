@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Teacher Booking</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+	<!-- Feathericon CSS -->
+	<link rel="stylesheet" href="/assets/css/feathericon.min.css">
+
+	<link rel="stylesheet" href="/assets/plugins/morris/morris.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<!-- Datetimepicker CSS -->
+	<link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css">
+
+	<!-- Select2 CSS -->
+	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+
+	<!-- Fancybox CSS -->
+	<link rel="stylesheet" href="/assets/plugins/fancybox/jquery.fancybox.min.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="/assets/css/style1.css">
+
+	<script type="text/javascript"
+		src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=P8xGPODX9jMvRiBgfsR6lvuzrDAt0pt2W1KG7XghW2XDbZ-LjRZazxE_D4Sw3jkRzys9hkn8Lzn5NgG0zVfzn-N8MxwpZTrDKvGEN3Vue7s91qhaMv8u3yd8eKlA4CFwDkCRakP3oZlSb3qETTgV7w"
+		charset="UTF-8"></script>
+
+</head>
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<div class="header">
+
+			<!-- Logo -->
+			<div class="header-left">
+				<a href="" class="logo">
+					<img src="/assets/img/logo.png" alt="Logo">
+				</a>
+				<a href="" class="logo logo-small">
+					<img src="/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+			<!-- /Logo -->
+
+			<a href="javascript:void(0);" id="toggle_btn">
+				<i class="fe fe-text-align-left"></i>
+			</a>
+
+			<!-- Mobile Menu Toggle -->
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fa fa-bars"></i>
+			</a>
+			<!-- /Mobile Menu Toggle -->
+
+			<!-- Header Right Menu -->
+			<ul class="nav user-menu">
+
+				<!-- User Menu -->
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<span class="user-img"><img class="rounded-circle"
+								src="/assets/img/profiles/avatar-01.jpg" width="31"
+								alt="Ryan Taylor"></span>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm">
+								<img src="/assets/img/profiles/avatar-01.jpg"
+									alt="User Image" class="avatar-img rounded-circle">
+							</div>
+							<div class="user-text">
+								<h6>
+									<%= teacher.name %>
+								</h6>
+								<p class="text-muted mb-0" id="uname">
+									<%= teacher.id %>
+								</p>
+							</div>
+						</div>
+						<!-- <a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="settings.html">Settings</a> -->
+						<a class="dropdown-item" href="/logout">Logout</a>
+					</div>
+				</li>
+				<!-- /User Menu -->
+
+			</ul>
+			<!-- /Header Right Menu -->
+
+		</div>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main</span>
+						</li>
+						<li>
+							<a href="/faculty/<%= teacher.id %>"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						</li>
+						<li>
+							<a href="/tprofile/<%= teacher.id %>"><i class="fe fe-user"></i> <span>Profile</span></a>
+						</li>
+						<li class="active">
+							<a href="/tbook/<%= teacher.id %>"><i class="fe fe-user"></i> <span>Booking</span></a>
+						</li>
+						<li> 
+							<a href="/tcancel/<%= teacher.id %>"><i class="fe fe-user"></i> <span>Cancel</span></a>
+						</li>
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper">
+
+			<div class="content container-fluid">
+
+				<form action="/faccont/<%= teacher.id %>" method="POST">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3>Booking</h3>
+							<div class="card search-filter">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Book</h4>
+								</div>
+								<div class="card-body">
+									<h4>Date</h4>
+									<div class="filter-widget">
+										<div class="cal-icon">
+											<input name="date1" type="date" class="form-control" placeholder="Select Date">
+										</div>
+									</div>
+
+									<h4>Course ID</h4>
+									<div class="filter-widget">
+										<div>
+											<input name="Course_id" type="text" class="form-control" placeholder="Course ID">
+										</div>
+									</div>
+
+									<h4>Class ID</h4>
+									<div class="filter-widget">
+										<div>
+											<input name="Class_id" type="text" class="form-control" placeholder="Eg: CSExxx">
+										</div>
+									</div>
+
+									<h4>Purpose</h4>
+									<div class="filter-widget">
+
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radio" value="event">
+												<span class="checkmark"></span>
+												<h5>Event<h5>
+											</label>
+										</div>
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radio" value="lecture">
+												<span class="checkmark"></span>
+												<h5>Lecture</h5>
+											</label>
+										</div>
+									</div>
+
+									<h4>Projector</h4>
+									<div class="filter-widget">
+
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radiop" value="yes">
+												<span class="checkmark"></span>
+												<h5>Yes<h5>
+											</label>
+										</div>
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radiop" value="no">
+												<span class="checkmark"></span>
+												<h5>No</h5>
+											</label>
+										</div>
+									</div>
+
+									<h4>Internet</h4>
+									<div class="filter-widget">
+
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radioi" value="yes">
+												<span class="checkmark"></span>
+												<h5>Yes<h5>
+											</label>
+										</div>
+										<div class="payment-list">
+											<label class="payment-radio">
+												<input type="radio" name="radioi" value="no">
+												<span class="checkmark"></span>
+												<h5>No</h5>
+											</label>
+										</div>
+									</div>
+
+									<h4>Capacity</h4>
+									<div class="form-group">
+										<input name="capacity" type="number" class="form-control" placeholder="Capacity" min="0">
+									</div>
+
+								</div>
+							</div>
+							<div class="schedule-widget">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">Timings</h4>
+											</div>
+											<div class="card-body">
+												<ul class="nav nav-tabs nav-tabs-solid">
+													<div class="radio-toolbar">
+														<input type="radio" id="radio9" name="radioFruit" value="09:00 AM">
+														<label for="radio9">09:00 AM</label>
+
+														<input type="radio" id="radio10" name="radioFruit" value="10:00 AM">
+														<label for="radio10">10:00 AM</label>
+
+														<input type="radio" id="radio11" name="radioFruit" value="11:00 AM">
+														<label for="radio11">11:00 AM</label>
+
+														<input type="radio" id="radio12" name="radioFruit" value="12:00 PM">
+														<label for="radio12">12:00 PM</label>
+
+														<input type="radio" id="radio1" name="radioFruit" value="01:00 PM">
+														<label for="radio1">01:00 PM</label>
+
+														<input type="radio" id="radio2" name="radioFruit" value="02:00 PM">
+														<label for="radio2">02:00 PM</label>
+
+														<input type="radio" id="radio3" name="radioFruit" value="03:00 PM">
+														<label for="radio3">03:00 PM</label>
+
+														<input type="radio" id="radio4" name="radioFruit" value="04:00 PM">
+														<label for="radio4">04:00 PM</label>
+
+														<input type="radio" id="radio5" name="radioFruit" value="05:00 PM">
+														<label for="radio5">05:00 PM</label>
+													</div>															
+												</ul>
+
+											</div>
+										</div>
+
+										<div class="submit-section proceed-btn text-right">
+											<button type="submit" class="btn btn-primary submit-btn">Continue</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /Page Wrapper -->
+
+	</div>
+	<!-- /Main Wrapper -->
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="/assets/plugins/raphael/raphael.min.js"></script>
+	<script src="/assets/plugins/morris/morris.min.js"></script>
+	<script src="/assets/js/chart.morris.js"></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
+
+</html>

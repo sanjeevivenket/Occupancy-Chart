@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Student Dashboard</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+	<!-- Feathericon CSS -->
+	<link rel="stylesheet" href="/assets/css/feathericon.min.css">
+
+	<link rel="stylesheet" href="/assets/plugins/morris/morris.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<link rel="stylesheet" href="/assets/css/table.css">
+
+</head>
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<div class="header">
+
+			<!-- Logo -->
+			<div class="header-left">
+				<a href="" class="logo">
+					<img src="/assets/img/logo.png" alt="Logo">
+				</a>
+				<a href="" class="logo logo-small">
+					<img src="/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+			<!-- /Logo -->
+
+			<a href="javascript:void(0);" id="toggle_btn">
+				<i class="fe fe-text-align-left"></i>
+			</a>
+
+
+			<!-- Mobile Menu Toggle -->
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fa fa-bars"></i>
+			</a>
+			<!-- /Mobile Menu Toggle -->
+
+			<!-- Header Right Menu -->
+			<ul class="nav user-menu">
+
+				<!-- User Menu -->
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<span class="user-img"><img class="rounded-circle"
+								src="/assets/img/profiles/avatar-01.jpg" width="31"
+								alt="Ryan Taylor"></span>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm">
+								<img src="/assets/img/profiles/avatar-01.jpg"
+									alt="User Image" class="avatar-img rounded-circle">
+							</div>
+							<div class="user-text">
+								<h6>
+									<%= student.name %>
+								</h6>
+								<p class="text-muted mb-0" id="uname">
+									<%= student.Rollno %>
+								</p>
+							</div>
+						</div>
+						<!-- <a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="settings.html">Settings</a> -->
+						<a class="dropdown-item" href="/logout">Logout</a>
+					</div>
+				</li>
+				<!-- /User Menu -->
+
+			</ul>
+			<!-- /Header Right Menu -->
+
+		</div>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main</span>
+						</li>
+						<li class="active">
+							<a href="/student/<%= student.Rollno %>"><i class="fe fe-home"></i>
+								<span>Dashboard</span></a>
+						</li>
+						<li>
+							<a href="/sprofile/<%= student.Rollno %>"><i class="fe fe-user"></i>
+								<span>Profile</span></a>
+						</li>
+						<li>
+							<a href="/sbook/<%= student.Rollno %>"><i class="fe fe-user"></i> <span>Booking</span></a>
+						</li>
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper">
+
+			<div class="content container-fluid">
+
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3 class="page-title">Welcome!</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item active">Dashboard</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /Page Header -->
+				<div class="timetable">
+					<div class="week-names">
+						<div>Monday</div>
+						<div>Tuesday</div>
+						<div>Wednesday</div>
+						<div>Thursday</div>
+						<div>Friday</div>
+						<div class="weekend">Saturday</div>
+						<div class="weekend">Sunday</div>
+					</div>
+					<div class="time-interval">
+						<div>9:00 AM</div>
+						<div>10:00 AM</div>
+						<div>11:00 AM</div>
+						<div>12:00 PM</div>
+						<div>1:00 PM</div>
+						<div>2:00 PM</div>
+						<div>3:00 PM</div>
+						<div>4:00 PM</div>
+						<div>5:00 PM</div>
+					</div>
+					<div class="content">
+						<div>
+							<h5>
+								<%= t[0].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[1].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[2].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[3].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[4].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[5].Course_id %>
+							</h5>
+							<h6>
+								<%= room[0][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[6].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[7].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[8].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[9].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[10].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[11].Course_id %>
+							</h5>
+							<h6>
+								<%= room[1][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[12].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[13].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[14].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[15].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[16].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[17].Course_id %>
+							</h5>
+							<h6>
+								<%= room[2][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[18].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[19].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[20].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[21].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[22].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[23].Course_id %>
+							</h5>
+							<h6>
+								<%= room[3][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[24].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[25].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[26].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[27].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[28].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[29].Course_id %>
+							</h5>
+							<h6>
+								<%= room[4][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[30].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[31].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[32].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[33].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[34].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[35].Course_id %>
+							</h5>
+							<h6>
+								<%= room[5][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[36].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[37].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[38].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[39].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[40].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[41].Course_id %>
+							</h5>
+							<h6>
+								<%= room[6][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[42].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[43].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[44].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[45].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[46].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[47].Course_id %>
+							</h5>
+							<h6>
+								<%= room[7][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+						<div>
+							<h5>
+								<%= t[48].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][0] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[49].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][1] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[50].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][2] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[51].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][3] %>
+							</h6>
+						</div>
+						<div>
+							<h5>
+								<%= t[52].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][4] %>
+							</h6>
+						</div>
+						<div class="weekend">
+							<h5>
+								<%= t[53].Course_id %>
+							</h5>
+							<h6>
+								<%= room[8][5] %>
+							</h6>
+						</div>
+						<div class="weekend"></div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+		<!-- /Page Wrapper -->
+
+	</div>
+	<!-- /Main Wrapper -->
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="/assets/plugins/raphael/raphael.min.js"></script>
+	<script src="/assets/plugins/morris/morris.min.js"></script>
+	<script src="/assets/js/chart.morris.js"></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin//dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
+
+</html>

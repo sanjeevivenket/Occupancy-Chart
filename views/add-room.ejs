@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Add Room</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+	<!-- Feathericon CSS -->
+	<link rel="stylesheet" href="/assets/css/feathericon.min.css">
+
+	<!-- Datatables CSS -->
+	<link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<div class="header">
+
+			<!-- Logo -->
+			<div class="header-left">
+				<a href="/dashboard" class="logo">
+					<img src="/assets/img/logo.png" alt="Logo">
+				</a>
+				<a href="/dashboard" class="logo logo-small">
+					<img src="/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+			<!-- /Logo -->
+
+			<a href="javascript:void(0);" id="toggle_btn">
+				<i class="fe fe-text-align-left"></i>
+			</a>
+
+			<!--<div class="top-nav-search">
+					<form>
+						<input type="text" class="form-control" placeholder="Search here">
+						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>-->
+
+			<!-- Mobile Menu Toggle -->
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fa fa-bars"></i>
+			</a>
+			<!-- /Mobile Menu Toggle -->
+
+			<!-- Header Right Menu -->
+			<ul class="nav user-menu">
+
+				<!-- User Menu -->
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<span class="user-img"><img class="rounded-circle"
+								src="/assets/img/profiles/avatar-01.jpg" width="31"
+								alt="Ryan Taylor"></span>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm">
+								<img src="/assets/img/profiles/avatar-01.jpg"
+									alt="User Image" class="avatar-img rounded-circle">
+							</div>
+							<div class="user-text">
+								<h6>Admin</h6>
+								<p class="text-muted mb-0">Administrator</p>
+							</div>
+						</div>
+						<a class="dropdown-item" href="logout">Logout</a>
+					</div>
+				</li>
+				<!-- /User Menu -->
+
+			</ul>
+			<!-- /Header Right Menu -->
+
+		</div>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main</span>
+						</li>
+						<li>
+							<a href="dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						</li>
+						<li>
+							<a href="alist"><i class="fe fe-layout"></i> <span>Requests</span></a>
+						</li>
+						<li>
+							<a href="flist"><i class="fe fe-user"></i> <span>Teachers</span></a>
+						</li>
+						<li>
+							<a href="slist"><i class="fe fe-user"></i> <span>Students</span></a>
+						</li>
+						<li>
+							<a href="rlist"><i class="fe fe-user"></i> <span>Rooms</span></a>
+						</li>
+						<li>
+							<a href="addt"><i class="fe fe-user-plus"></i> <span>Add Teacher</span></a>
+						</li>
+						<li>
+							<a href="adds"><i class="fe fe-user-plus"></i> <span>Add Student</span></a>
+						</li>
+						<li>
+							<a href="addc"><i class="fe fe-user-plus"></i> <span>Add Course</span></a>
+						</li>
+						<li class="active">
+							<a href="addr"><i class="fe fe-user-plus"></i> <span>Add Room</span></a>
+						</li>
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper">
+			<div class="content container-fluid">
+
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row">
+						<div class="col">
+							<h3 class="page-title">Add Room</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+								<li class="breadcrumb-item active">Add Room</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /Page Header -->
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Room details</h4>
+							</div>
+							<div class="card-body">
+								<form action="/addroom" onsubmit="return false" method="POST">
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Room no</label>
+										<div class="col-md-10">
+											<input name="Roomno" id="Roomno" type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Capacity</label>
+										<div class="col-md-10">
+											<input name="Capacity" id="Capacity" type="number" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Block</label>
+										<div class="col-md-10">
+											<input name="block" id="block" type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Floor</label>
+										<div class="col-md-10">
+											<input name="Floor" id="Floor" type="number" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Projector</label>
+										<div class="col-md-10">
+											<input name="Projector" id="Projector" type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-form-label col-md-2">Internet</label>
+										<div class="col-md-10">
+											<input name="Internet" id="Internet" type="text" class="form-control">
+										</div>
+									</div>
+									<div class="input-group-append">
+										<button onclick="clickfn()" class="btn btn-primary">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- /Page Wrapper -->
+
+		<!-- Edit Details Modal -->
+		<div class="modal fade" id="edit_specialities_details" aria-hidden="true" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Edit Specialities</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="row form-row">
+								<div class="col-12 col-sm-6">
+									<div class="form-group">
+										<label>Specialities</label>
+										<input type="text" class="form-control" value="Cardiology">
+									</div>
+								</div>
+								<div class="col-12 col-sm-6">
+									<div class="form-group">
+										<label>Image</label>
+										<input type="file" class="form-control">
+									</div>
+								</div>
+
+							</div>
+							<button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Edit Details Modal -->
+
+		<!-- Delete Modal -->
+		<div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="form-content p-2">
+							<h4 class="modal-title">Delete</h4>
+							<p class="mb-4">Are you sure want to delete?</p>
+							<button type="button" class="btn btn-primary">Save </button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Delete Modal -->
+
+	</div>
+	<!-- /Main Wrapper -->
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Datatables JS -->
+	<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="/assets/plugins/datatables/datatables.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script>
+		async function clickfn() {
+			console.log("helo");
+			let Roomno = document.getElementById('Roomno').value
+			let Capacity = document.getElementById('Capacity').value
+			let block = document.getElementById('block').value
+			let Floor = document.getElementById('Floor').value
+			let Projector = document.getElementById('Projector').value
+			let Internet = document.getElementById('Internet').value
+			try {
+				let res = await axios.post('/addroom', { Roomno, Capacity, block, Floor, Projector, Internet })
+				// jwt in localstorage
+				console.log(res);
+				// location.replace("/adds");
+				document.getElementById('Roomno').value = null
+				document.getElementById('Capacity').value = null
+				document.getElementById('block').value = null
+				document.getElementById('Floor').value = null
+				document.getElementById('Projector').value = null
+				document.getElementById('Internet').value = null
+				swal({
+					title: "Success",
+					icon: "success",
+					button: "Ok",
+				});
+			}
+			catch (err) {
+				swal({
+					title: "Error Inserting!",
+					icon: "error",
+					button: "Ok",
+				});
+				console.log(err);
+			}
+
+		}
+	</script>
+
+</body>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+
+</html>
