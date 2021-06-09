@@ -21,7 +21,7 @@ Date.prototype.addDays = function (days) {
   return date;
 };
 
-let db = new sqlite3.Database('D:\\ASE\\Software Engineering\\Copy\\Project\\db.sqlite3', (err) => {
+let db = new sqlite3.Database('db.sqlite3', (err) => {
   if (err) {
     return console.error(err.message);
   }
