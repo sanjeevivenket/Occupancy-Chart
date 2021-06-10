@@ -164,12 +164,12 @@ app.get("/student/:username", async function (req, res) {
                 console.log(s)
                 var ss = s % 7;
                 var sx = Math.floor(ss)
-                var w=sx;
+                var w = sx;
                 var z = r[i].time;
                 var u = ti[z];
                 let tit = { "09:00 AM": 0, "10:00 AM": 6, "11:00 AM": 12, "12:00 PM": 18, "01:00 PM": 24, "02:00 PM": 30, "03:00 PM": 36, "04:00 PM": 42, "05:00 PM": 48 };
-                let ind = (w-1)+tit[r[i].time];
-                room[u][w-1] = r[i].room_id;
+                let ind = (w - 1) + tit[r[i].time];
+                room[u][w - 1] = r[i].room_id;
                 t[ind].Course_id = r[i].Course_id;
               }
               res.render("std-index.ejs", { student: row[0], t: t, room: room });
@@ -202,8 +202,7 @@ app.post("/schange/:username", async function (req, res) {
       console.log(err.message)
     }
     else {
-      const path = require('path');
-      res.sendFile(path.join(__dirname, '/login.html'));
+      res.render("login.ejs");
     }
   })
 })
@@ -230,8 +229,8 @@ app.get("/faculty/:username", async function (req, res) {
     else {
       var klm;
       var tx = new Array(54);
-      for(klm=0;klm<54;klm++){
-        tx[klm]=" ";
+      for (klm = 0; klm < 54; klm++) {
+        tx[klm] = " ";
       }
       db.all(`SELECT Course_id,timeslot,day FROM info_timetable WHERE faculty_id='${req.params.username}' ORDER BY timeslot,day`, (err1, t) => {
         if (err1) {
@@ -265,12 +264,12 @@ app.get("/faculty/:username", async function (req, res) {
               console.log("hello sir");
               var irl;
               let tit1 = { "a09": 0, "a10": 6, "a11": 12, "a12": 18, "f1": 24, "f2": 30, "f3": 36, "f4": 42, "f5": 48 };
-                let tit2 = { "1m": 0, "2t": 1, "3w": 2, "4h": 3, "5f": 4, "6s": 5 };
-                console.log(t);
-                for(irl=0;irl<t.length;irl++){
-                  let ind1=tit1[t[irl].timeslot]+tit2[t[irl].day];
-                  tx[ind1]=t[irl].Course_id;
-                }
+              let tit2 = { "1m": 0, "2t": 1, "3w": 2, "4h": 3, "5f": 4, "6s": 5 };
+              console.log(t);
+              for (irl = 0; irl < t.length; irl++) {
+                let ind1 = tit1[t[irl].timeslot] + tit2[t[irl].day];
+                tx[ind1] = t[irl].Course_id;
+              }
               for (i = 0; i < r.length; i++) {
                 var k = r[i].date;
                 var ik;
@@ -302,12 +301,12 @@ app.get("/faculty/:username", async function (req, res) {
                 console.log(s)
                 var ss = s % 7;
                 var sx = Math.floor(ss)
-                var w=sx;
+                var w = sx;
                 var z = r[i].time;
                 var u = ti[z];
                 let tit = { "09:00 AM": 0, "10:00 AM": 6, "11:00 AM": 12, "12:00 PM": 18, "01:00 PM": 24, "02:00 PM": 30, "03:00 PM": 36, "04:00 PM": 42, "05:00 PM": 48 };
-                let ind = (w-1)+tit[r[i].time];
-                room[u][w-1] = r[i].room_id;
+                let ind = (w - 1) + tit[r[i].time];
+                room[u][w - 1] = r[i].room_id;
                 tx[ind] = r[i].Course_id;
               }
               res.render("teach-index.ejs", { teacher: row[0], t: tx, room: room });
@@ -340,8 +339,7 @@ app.post("/tchange/:username", async function (req, res) {
       console.log(err.message)
     }
     else {
-      const path = require('path');
-      res.sendFile(path.join(__dirname, '/login.html'));
+      res.render("login.ejs");
     }
   })
 })
@@ -920,6 +918,6 @@ app.post("/facroom", async function (req, res) {
   });
 })
 
-app.listen(process.env.PORT||3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server Running at 3000");
 })
